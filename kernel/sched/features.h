@@ -91,3 +91,8 @@ SCHED_FEAT(EXYNOS_HMP, true)
 #else
 SCHED_FEAT(EXYNOS_HMP, false)
 #endif
+
+/*
+ * UtilEstimation. Use estimated CPU utilization.
+ */
+SCHED_FEAT(UTIL_EST, false)
