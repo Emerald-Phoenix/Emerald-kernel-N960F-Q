@@ -1,2 +1,5 @@
 i386
 x86_64
+arm64/boot/dtb.img
+arm64/boot/dts/exynos/*.dtb
+arm64/boot/dts/exynos/*.dtb.*
