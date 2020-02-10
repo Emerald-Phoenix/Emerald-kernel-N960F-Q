@@ -3964,7 +3964,7 @@ dhd_pktfilter_offload_set(dhd_pub_t * dhd, char *arg)
 
 	str = "pkt_filter_add";
 	str_len = strlen(str);
-	bcm_strncpy_s(buf, MAX_PKTFLT_BUF_SIZE, str, str_len);
+	bcm_strncpy_s(buf, MAX_PKTFLT_BUF_SIZE, str, MAX_PKTFLT_BUF_SIZE - 1);
 	buf[ str_len ] = '\0';
 	buf_len = str_len + 1;
 
@@ -4120,7 +4120,7 @@ dhd_pktfilter_offload_set(dhd_pub_t * dhd, char *arg)
 					htod16(WL_PKT_FILTER_MFLAG_NEG);
 				(argv[i])++;
 			}
-			if (argv[i] == '\0') {
+			if (*argv[i] == '\0') {
 				printf("Pattern not provided\n");
 				goto fail;
 			}

@@ -8498,7 +8498,7 @@ dhd_attach(osl_t *osh, struct dhd_bus *bus, uint bus_hdrlen)
 		len = strlen(if_name);
 		ch = if_name[len - 1];
 		if ((ch > '9' || ch < '0') && (len < IFNAMSIZ - 2))
-			strncat(if_name, "%d", 2);
+			strcat(if_name, "%d");
 	}
 
 	/* Passing NULL to dngl_name to ensure host gets if_name in dngl_name member */
@@ -9140,7 +9140,7 @@ bool dhd_update_fw_nv_path(dhd_info_t *dhdinfo)
 				uint32 padding_size = (uint32)(dhdinfo->nv_path +
 					nv_path_len - sp);
 				memset(sp, 0, padding_size);
-				strncat(dhdinfo->nv_path, ext_tag, strlen(ext_tag));
+				strncat(dhdinfo->nv_path, ext_tag, PATH_MAX - 1);
 				nv_len = strlen(dhdinfo->nv_path);
 				DHD_INFO(("%s: new nvram path = %s\n",
 					__FUNCTION__, dhdinfo->nv_path));
@@ -14814,7 +14814,7 @@ dhd_dev_start_mkeep_alive(dhd_pub_t *dhd_pub, uint8 mkeep_alive_id, uint8 *ip_pk
 	memset(pbuf, 0, KA_TEMP_BUF_SIZE);
 	str = "mkeep_alive";
 	str_len = strlen(str);
-	strncpy(pbuf, str, str_len);
+	strncpy(pbuf, str, KA_TEMP_BUF_SIZE - 1);
 	pbuf[str_len] = '\0';
 
 	mkeep_alive_pktp = (wl_mkeep_alive_pkt_t *) (pbuf + str_len + 1);

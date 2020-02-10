@@ -84,6 +84,8 @@ struct cmucal_pll_table pll_mif_s2d_rate_table[] = {
 /*====================The section of PLLs===================*/
 unsigned int cmucal_pll_size = 12;
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wsizeof-pointer-div"
 struct cmucal_pll cmucal_pll_list[] = {
 	CLK_PLL(PLL_1031X, PLL_AUD, OSCCLK_AUD, PLL_LOCKTIME_PLL_AUD_PLL_LOCK_TIME, PLL_CON0_PLL_AUD_ENABLE, PLL_CON0_PLL_AUD_STABLE, PLL_CON0_PLL_AUD_DIV_P, PLL_CON0_PLL_AUD_DIV_M, PLL_CON0_PLL_AUD_DIV_S, PLL_CON3_PLL_AUD_DIV_K, pll_aud_rate_table, 0, 0),
 	CLK_PLL(PLL_1017X, PLL_SHARED1, OSCCLK_CMU, PLL_LOCKTIME_PLL_SHARED1_PLL_LOCK_TIME, PLL_CON0_PLL_SHARED1_ENABLE, PLL_CON0_PLL_SHARED1_STABLE, PLL_CON0_PLL_SHARED1_DIV_P, PLL_CON0_PLL_SHARED1_DIV_M, PLL_CON0_PLL_SHARED1_DIV_S, EMPTY_CAL_ID, pll_shared1_rate_table, 0, 0),
@@ -98,6 +100,7 @@ struct cmucal_pll cmucal_pll_list[] = {
 	CLK_PLL(PLL_1050X, PLL_MIF, OSCCLK_MIF, PLL_LOCKTIME_PLL_MIF_PLL_LOCK_TIME, PLL_CON0_PLL_MIF_ENABLE, PLL_CON0_PLL_MIF_STABLE, PLL_CON0_PLL_MIF_DIV_P, PLL_CON0_PLL_MIF_DIV_M, PLL_CON0_PLL_MIF_DIV_S, EMPTY_CAL_ID, pll_mif_rate_table, 150, 0),
 	CLK_PLL(PLL_1016X, PLL_MIF_S2D, OSCCLK_S2D, PLL_LOCKTIME_PLL_MIF_S2D_PLL_LOCK_TIME, PLL_CON0_PLL_MIF_S2D_ENABLE, PLL_CON0_PLL_MIF_S2D_STABLE, PLL_CON0_PLL_MIF_S2D_DIV_P, PLL_CON0_PLL_MIF_S2D_DIV_M, PLL_CON0_PLL_MIF_S2D_DIV_S, EMPTY_CAL_ID, pll_mif_s2d_rate_table, 0, 0),
 };
+#pragma GCC diagnostic pop
 
 /*====================The section of MUXs' parents===================*/
 enum clk_id cmucal_mux_clk_apm_bus_parents[] = {
@@ -720,6 +723,8 @@ enum clk_id cmucal_mux_clkcmu_vts_dll_user_parents[] = {
 unsigned int cmucal_mux_size = 198;
 
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wsizeof-pointer-div"
 struct cmucal_mux cmucal_mux_list[] = {
 	CLK_MUX(MUX_CLK_APM_BUS, cmucal_mux_clk_apm_bus_parents, CLK_CON_MUX_MUX_CLK_APM_BUS_SELECT, CLK_CON_MUX_MUX_CLK_APM_BUS_BUSY, CLK_CON_MUX_MUX_CLK_APM_BUS_ENABLE_AUTOMATIC_CLKGATING),
 	CLK_MUX(MUX_CLK_AUD_UAIF3, cmucal_mux_clk_aud_uaif3_parents, CLK_CON_MUX_MUX_CLK_AUD_UAIF3_SELECT, CLK_CON_MUX_MUX_CLK_AUD_UAIF3_BUSY, CLK_CON_MUX_MUX_CLK_AUD_UAIF3_ENABLE_AUTOMATIC_CLKGATING),
@@ -920,6 +925,7 @@ struct cmucal_mux cmucal_mux_list[] = {
 	CLK_MUX(MUX_CLKCMU_VTS_BUS_USER, cmucal_mux_clkcmu_vts_bus_user_parents, PLL_CON0_MUX_CLKCMU_VTS_BUS_USER_MUX_SEL, PLL_CON0_MUX_CLKCMU_VTS_BUS_USER_BUSY, PLL_CON2_MUX_CLKCMU_VTS_BUS_USER_ENABLE_AUTOMATIC_CLKGATING),
 	CLK_MUX(MUX_CLKCMU_VTS_DLL_USER, cmucal_mux_clkcmu_vts_dll_user_parents, PLL_CON0_MUX_CLKCMU_VTS_DLL_USER_MUX_SEL, PLL_CON0_MUX_CLKCMU_VTS_DLL_USER_BUSY, PLL_CON2_MUX_CLKCMU_VTS_DLL_USER_ENABLE_AUTOMATIC_CLKGATING),
 };
+#pragma GCC diagnostic pop
 
 /*====================The section of DIVs===================*/
 unsigned int cmucal_div_size = 147;

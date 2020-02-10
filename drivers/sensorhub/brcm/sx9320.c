@@ -61,6 +61,7 @@
 #define TOUCH_STATE		1
 
 #define HALLIC_PATH		"/sys/class/sec/sec_key/hall_detect"
+#define HALLIC_STATE_LENGTH	6
 
 struct sx9320_p {
 	struct i2c_client *client;
@@ -124,7 +125,7 @@ struct sx9320_p {
 
 	atomic_t enable;
 
-	char hall_ic[6];
+	char hall_ic[HALLIC_STATE_LENGTH];
 };
 
 static int sx9320_check_hallic_state(char *file_path, char hall_ic_status[])
@@ -154,7 +155,7 @@ static int sx9320_check_hallic_state(char *file_path, char hall_ic_status[])
 		set_fs(old_fs);
 		return -EIO;
 	} else {
-		strncpy(hall_ic_status, hall_sysfs, sizeof(hall_sysfs));
+		strncpy(hall_ic_status, hall_sysfs, HALLIC_STATE_LENGTH - 1);
 	}
 
 	filp_close(filep, current->files);

@@ -141,7 +141,7 @@ dhd_read_cis(dhd_pub_t *dhdp)
 	cish->source = 0;
 	cish->byteoff = 0;
 	cish->nbytes = buf_size;
-	strncpy(g_cis_buf, "cisdump", length);
+	strncpy(g_cis_buf, "cisdump", buf_size - 1);
 
 	ret = dhd_wl_ioctl_cmd(dhdp, WLC_GET_VAR, g_cis_buf, buf_size, 0, 0);
 	if (ret < 0) {

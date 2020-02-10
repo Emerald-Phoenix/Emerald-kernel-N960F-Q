@@ -295,6 +295,8 @@ static ssize_t camera_ssrm_camera_info_store(struct device *dev,
 	return count;
 }
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wstringop-overflow"
 static ssize_t camera_ssrm_camera_info_show(struct device *dev,
 		struct device_attribute *attr, char *buf)
 {
@@ -328,6 +330,7 @@ static ssize_t camera_ssrm_camera_info_show(struct device *dev,
 	}
 	return strlen(buf);
 }
+#pragma GCC diagnostic pop
 
 static DEVICE_ATTR(ssrm_camera_info, 0644, camera_ssrm_camera_info_show, camera_ssrm_camera_info_store);
 
@@ -520,6 +523,8 @@ static ssize_t camera_front_checkfw_factory_show(struct device *dev,
 }
 #endif
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wstringop-overflow"
 #ifdef CAMERA_SYSFS_V2
 static ssize_t camera_front_info_show(struct device *dev,
 		struct device_attribute *attr, char *buf)
@@ -686,6 +691,7 @@ static ssize_t camera_front_info_show(struct device *dev,
 	return sprintf(buf, "%s\n", camera_info);
 }
 #endif
+#pragma GCC diagnostic pop
 
 #ifdef USE_CAMERA_MIPI_CLOCK_VARIATION
 static ssize_t camera_front_mipi_clock_show(struct device *dev,
@@ -1051,6 +1057,8 @@ static ssize_t camera_rear_checkfw_factory_show(struct device *dev,
 
 	return sprintf(buf, "%s", command_ack);
 }
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wstringop-overflow"
 #ifdef CAMERA_SYSFS_V2
 static ssize_t camera_rear_info_show(struct device *dev,
 		struct device_attribute *attr, char *buf)
@@ -1218,6 +1226,7 @@ static ssize_t camera_rear_info_show(struct device *dev,
 	return sprintf(buf, "%s\n", camera_info);
 }
 #endif
+#pragma GCC diagnostic pop
 
 #ifdef CAMERA_REAR2
 static ssize_t camera_rear2_sensorid_show(struct device *dev,
@@ -1344,6 +1353,8 @@ static ssize_t camera_rear2_checkfw_factory_show(struct device *dev,
 
 	return sprintf(buf, "%s", command_ack);
 }
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wstringop-overflow"
 #ifdef CAMERA_SYSFS_V2
 static ssize_t camera_rear2_info_show(struct device *dev,
 		struct device_attribute *attr, char *buf)
@@ -1602,6 +1613,7 @@ static ssize_t camera_rear2_afcal_show(struct device *dev,
 
 	return strlen(buf);
 }
+#pragma GCC diagnostic pop
 
 static ssize_t camera_rear2_sensorid_exif_show(struct device *dev,
 		struct device_attribute *attr, char *buf)
@@ -2185,6 +2197,8 @@ static ssize_t camera_rear_force_cal_load_show(struct device *dev,
 }
 #endif
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wstringop-overflow"
 static ssize_t camera_rear_afcal_show(struct device *dev,
 		struct device_attribute *attr, char *buf)
 {
@@ -2421,6 +2435,7 @@ static ssize_t camera_rear_f2_paf_offset_far_show(struct device *dev,
 #endif
 	return strlen(buf);
 }
+#pragma GCC diagnostic pop
 
 static ssize_t camera_rear_f2_paf_cal_check_show(struct device *dev,
 		struct device_attribute *attr, char *buf)
@@ -2890,6 +2905,8 @@ static ssize_t camera_iris_checkfw_user_show(struct device *dev,
 	}
 }
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wstringop-overflow"
 #ifdef CAMERA_SYSFS_V2
 static ssize_t camera_iris_info_show(struct device *dev,
 		struct device_attribute *attr, char *buf)
@@ -3058,6 +3075,7 @@ static ssize_t camera_iris_info_show(struct device *dev,
 }
 #endif
 #endif
+#pragma GCC diagnostic pop
 
 #ifdef CAMERA_MODULE_DUALIZE
 static DEVICE_ATTR(from_write, S_IRUGO,

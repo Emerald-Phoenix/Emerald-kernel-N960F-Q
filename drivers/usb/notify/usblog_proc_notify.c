@@ -915,8 +915,8 @@ void mode_store_usblog_notify(int type, char *param1)
 					sizeof(md_buffer->usbmode_str)-1);
 				b = NULL;
 			} else {
-				strncat(md_buffer->usbmode_str, ",", 1);
-				strncat(md_buffer->usbmode_str, name, 3);
+				strcat(md_buffer->usbmode_str, ",");
+				strcat(md_buffer->usbmode_str, name);
 			}
 		}
 	}
