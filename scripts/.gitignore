@@ -16,3 +16,4 @@ sign-file
 insert-sys-cert
 crypto/__pycache__/
 fmp/__pycache__/
+dtbtool_exynos/*
