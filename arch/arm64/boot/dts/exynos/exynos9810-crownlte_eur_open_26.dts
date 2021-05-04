@@ -13825,7 +13825,7 @@
 
 		current_group_12 {
 			cable_number = <0x1 0x4>;
-			input_current = <0x1db>;
+			input_current = <0x1f4>;
 			charging_current = <0x226>;
 		};
 
